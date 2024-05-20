@@ -1,0 +1,105 @@
+<html>
+
+<head>
+
+    <title>
+        PENDAFTARAN NOMOR HP
+
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <script>
+        function validasi() {
+            //Membaca isi no HP
+            var nohp = document.getElementById("nohp").value;
+
+            //if (nohp.length == 0){
+            if (nohp == "") {
+                document.getElementById("errmassage").innerHTML = "NO. HP Harus Diisi";
+                return false;
+            }
+
+            if (isNaN(nohp) == true) {
+                document.getElementById("errmassage").innerHTML = "NO. HP Harus Angka";
+                return false;
+            }
+
+            if (nohp.charAt(0) != "0") {
+                document.getElementById("errmassage").innerHTML = "NO. HP Harus diawali dengan 0";
+                return false;
+            }
+
+            //default value dari return di onsubmit adalah true
+            //dalam 1 function bila sudah menemui 1 return, bawahnya gabakal dijalankan
+
+            var email = document.getElementById("email").value;
+            if (email == "") {
+                document.getElementById("errmassage").innerHTML = "Email Harus Diisi";
+                return false;
+            }
+
+
+
+            if (email.includes("@") == false) {
+                document.getElementById("errmassage").innerHTML = "Email Harus Memiliki unsur @ ";
+                return false;
+            }
+
+            if (email.includes(".") == false) {
+                document.getElementById("errmassage").innerHTML = "Email Harus Memiliki unsur . ";
+                return false;
+            }
+
+            const emailSplit = email.split("@");
+            if (emailSplit[0].length <= 7) {
+                document.getElementById("errmassage").innerHTML = "Alamat Email minimal 8 karakter";
+                return false;
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="alert alert-danger">
+            <div id="errmassage"></div>
+        </div>
+        <form method="get" action="http://google.com" onsubmit="return validasi();">
+            <div class="form-group" style="padding: 60px; padding-top: 10%;">
+                <h2>REGISTRASI MANDIRI NO HP</h2>
+                <label for="nohp">NO HANDPHONE</label>
+                <input type="text" id="nohp" name="nohp" placeholder="Masukkan no. HP yang akan diregister"
+                    class="form-control">
+
+                <label for="email">EMAIL</label>
+                <input type="text" id="email" name="email" placeholder="Masukkan email yang akan diregister"
+                    class="form-control">
+
+                <input type="submit" class="btn btn-success mt-4" value="SIMPAN">
+
+
+            </div>
+        </form>
+
+    </div>
+
+</body>
+
+</html>

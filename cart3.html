@@ -1,0 +1,78 @@
+<html>
+
+<head>
+
+    <title>
+
+
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    <script>
+        function validasi() {
+            var pakai = document.getElementById("kode");
+            if (pakai.disabled == false) {
+                pakai.disabled = true;
+            } else {
+                pakai.disabled = false;
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+    <div class="container" ><br>
+        <div class="jumbotron" style="text-align: center; background-color:whitesmoke;">
+
+            <h3> PILIH PEMBAYARAN</h3>
+            <form action="/action_page.php">
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" class="custom-control-input" id="radio1" name="example" value="pembayaran"
+                        onchange="validasi()" checked>
+                    <label class="custom-control-label" for="radio1">PAKAI KUPON</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" class="custom-control-input" id="radio2" name="example" value="pembayaran"
+                        onchange="validasi()">
+                    <label class="custom-control-label" for="radio2">TIDAK PAKAI</label>
+                </div>
+                <h4></h4>
+
+                <div class="form-group form-inline" id="divkupon">
+                    <label class="mr-md-5" for="kode">KODE KUPON</label>
+                    <input class="form-control" type="text" id="kode" name="kode" placeholder="Masukkan kode kupon"
+                        style="padding-right: 50%;">
+                </div>
+
+                <div class="form-group form-inline" id="divbarang">
+                    <label class="mr-md-3" for="barang">JUMLAH BARANG</label>
+                    <input class="form-control" type="number" id="barang" name="barang"
+                        placeholder="Masukkan jumlah barang" style="padding-right:50%;">
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary">BELI</button>
+            </form>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

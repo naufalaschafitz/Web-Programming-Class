@@ -1,0 +1,76 @@
+<html>
+
+<head>
+
+    <title>
+        Pilih Pengiriman (2)
+
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+
+    <script>
+        function validasi() {
+            var kurir = document.getElementById("kurir");
+            var cod = document.getElementById("lokasicod");
+
+            if (kurir.disabled == true) {
+                kurir.disabled = false;
+                cod.disabled = true;
+            }
+            else {
+                kurir.disabled = true;
+                cod.disabled = false;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h3>Pilih cara pengiriman</h3>
+        <form action="/action_page.php">
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="switch1" name="example" value="cod"
+                    onchange="validasi()">
+                <label class="custom-control-label" for ="switch1">COD</label>
+            </div>
+
+            <div class="form-group" id="divkurir">
+                <label class="control-label" for="kurir">Pilih kurir</label>
+                <select name="kurir" id="kurir" class="custom-select">
+                    <option value="jne">JNE Rp 15.000,-</option>
+                    <option value="ninja">Ninja Rp 20.000,-</option>
+                </select>
+            </div>
+
+            <div class="form-group" id="divcod">
+                <label class="control-label" for="lokasicod">Pilih lokasi COD</label>
+                <select name="lokasicod" id="lokasicod" class="custom-select" disabled>
+                    <option value="rumah">Rumah</option>
+                    <option value="kantor">Kantor terdekat</option>
+                </select>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary">Beli</button>
+        </form>
+    </div>
+</body>
+
+</html>
